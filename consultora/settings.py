@@ -121,12 +121,6 @@ cloudinary.config(
     api_secret=os.environ.get("CLOUDINARY_API_SECRET", "zo8Jt3LpdR3Dk_lM1MeLf3A1tM7O")
 )
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'mlkllueu',
-    'API_KEY': '985133631137444',
-    'API_SECRET': 'zo8Jt3LpdR3Dk_lM1eLf3A1tM70'
-}
-
 # Redirección después de cerrar sesión
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'inicio'
