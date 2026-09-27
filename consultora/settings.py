@@ -108,8 +108,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files (archivos subidos por usuarios)
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+#MEDIA_URL = "/media/"
+#MEDIA_ROOT = BASE_DIR / "media"
 
 # ✅ Configuración para Cloudinary (media en producción)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
