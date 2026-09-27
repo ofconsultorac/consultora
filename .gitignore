@@ -3,14 +3,13 @@ venv/
 *.pyc
 __pycache__/
 
-# Archivos de base de datos locales
+# Base de datos local
 db.sqlite3
 
-# Archivos de migraciones
+# Migraciones (solo caché, no los archivos .py)
 */migrations/__pycache__/
-*/migrations/*.py
 
-# Archivos estáticos y media generados
+# Archivos estáticos y media generados (se crean en producción)
 staticfiles/
 media/
 
