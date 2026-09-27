@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Rol, Usuario, Servicio, Curso, Blog, Matricula, Especialidad, Docente, Nota
+from django.utils.html import format_html
+
 
 
 @admin.register(Rol)
@@ -19,9 +21,16 @@ class UsuarioAdmin(admin.ModelAdmin):
 
 @admin.register(Servicio)
 class ServicioAdmin(admin.ModelAdmin):
-    list_display = ("id", "nombre", "descripcion")
+    list_display = ("id", "nombre", "descripcion", "mostrar_imagen")
     search_fields = ("nombre", "descripcion")
     ordering = ("nombre",)
+
+    def mostrar_imagen(self, obj):
+        if obj.imagenservicio:
+            return format_html('<img src="{}" width="70" height="50" style="object-fit:cover;" />', obj.imagenservicio.url)
+        return "Sin imagen"
+
+    mostrar_imagen.short_description = "Imagen"
 
 
 @admin.register(Especialidad)
