@@ -58,10 +58,20 @@ class CursoAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ("id", "titulo", "usuario", "servicio", "fecha_publicacion")
+    list_display = ("id", "titulo", "usuario", "servicio", "fecha_publicacion", "mostrar_imagen")
     list_filter = ("servicio", "fecha_publicacion")
     search_fields = ("titulo", "textoblog")
     date_hierarchy = "fecha_publicacion"
+
+    def mostrar_imagen(self, obj):
+        if obj.imagenblog:
+            return format_html(
+                '<img src="{}" width="70" height="50" style="object-fit:cover;" />',
+                obj.imagenblog.url
+            )
+        return "Sin imagen"
+
+    mostrar_imagen.short_description = "Imagen"
 
 
 @admin.register(Matricula)
