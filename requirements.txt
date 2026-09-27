@@ -1,5 +1,5 @@
 ﻿asgiref==3.12.1
-Django==6.1.1
+Django==5.1.7
 django-ckeditor==6.7.3
 django-js-asset==4.2.0
 et_xmlfile==2.0.0
