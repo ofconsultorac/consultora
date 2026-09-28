@@ -1,24 +1,52 @@
-# Entorno virtual
+# Entornos virtuales
 venv/
 *.pyc
 __pycache__/
+*.pyo
+*.pyd
 
-# Base de datos local
+# Archivos de base de datos locales
+*.sqlite3
 db.sqlite3
 
-# Migraciones (solo caché, no los archivos .py)
-*/migrations/__pycache__/
+# Archivos de logs
+*.log
 
-# Archivos estáticos y media generados (se crean en producción)
-staticfiles/
-media/
+# Archivos temporales
+*.pot
+*.mo
+*.swp
+*.swo
+*.tmp
 
 # Configuración de IDEs
 .vscode/
 .idea/
+*.iml
 
 # Archivos de sistema
-*.log
-*.pot
-*.py[cod]
-*$py.class
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Archivos de cobertura y pruebas
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de migraciones compilados
+migrations/__pycache__/
+
+# ⚠️ Importante: NO ignorar staticfiles/
+# staticfiles/  ← esta línea la quitamos para que Render reciba los estilos
