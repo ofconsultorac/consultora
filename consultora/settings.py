@@ -108,18 +108,19 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files (archivos subidos por usuarios)
-#MEDIA_URL = "/media/"
-#MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # ✅ Configuración para Cloudinary (media en producción)
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Configuración explícita de Cloudinary (para entorno local)
-cloudinary.config(
-    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME", "amlk1llueu"),
-    api_key=os.environ.get("CLOUDINARY_API_KEY", "985133631137444"),
-    api_secret=os.environ.get("CLOUDINARY_API_SECRET", "zo8Jt3LpdR3Dk_lM1MeLf3A1tM7O")
-)
+# ✅ Configuración explícita de Cloudinary SOLO si no existe CLOUDINARY_URL (ej. entorno local)
+if not os.environ.get("CLOUDINARY_URL"):
+    cloudinary.config(
+        cloud_name="amlk1llueu",
+        api_key="985133631137444",
+        api_secret="zo8Jt3LpdR3Dk_lM1MeLf3A1tM7O"
+    )
 
 # Redirección después de cerrar sesión
 LOGIN_URL = 'login'
