@@ -109,13 +109,15 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # ✅ Whitenoise: almacenamiento comprimido para producción
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
 # Media files (archivos subidos por usuarios)
 if DEBUG:
-    MEDIA_URL = "/media/"
-    MEDIA_ROOT = BASE_DIR / "media"
-
-# ✅ Configuración para Cloudinary (media en producción)
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+else:
+    # ✅ Configuración para Cloudinary (media en producción)
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Configuración explícita de Cloudinary (para entorno local y producción)
 cloudinary.config(
