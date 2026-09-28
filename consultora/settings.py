@@ -66,6 +66,7 @@ WSGI_APPLICATION = 'consultora.wsgi.application'
 # Database
 # ✅ Usa PostgreSQL local si no existe DATABASE_URL
 if os.environ.get("DATABASE_URL"):
+    # Producción (Render)
     DATABASES = {
         'default': dj_database_url.config(
             default=os.environ["DATABASE_URL"],
@@ -74,6 +75,7 @@ if os.environ.get("DATABASE_URL"):
         )
     }
 else:
+    # Desarrollo local
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -84,7 +86,7 @@ else:
             'PORT': '5432',
         }
     }
-
+    
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
